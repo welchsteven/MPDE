@@ -14,5 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install 
+      run: sudo docker run --privileged --rm tonistiigi/binfmt --install all
+    - name: Install asd
+      run: sudo docker run --privileged --rm tonistiigi/binfmt --install arm64,riscv64,arm
     - name: Build the Multiplatform Ubuntu image
       run: ./build.sh
